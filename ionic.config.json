@@ -1,6 +1,6 @@
 {
   "name": "TabsApp",
-  "app_id": "",
+  "app_id": "1b1b5185",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -35,7 +35,6 @@ export class SettingsPage {
       state: this.state
     }
     this.storage.set('location', JSON.stringify(location));
-    this.navCtrl.push(HomePage);
   }
 
 }
