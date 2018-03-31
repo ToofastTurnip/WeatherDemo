@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { HomePage } from '../home/home'
+import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -12,7 +12,7 @@ export class SettingsPage {
   city:string;
   state:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage:Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage:Storage, public toastCtrl: ToastController) {
     this.storage.get('location').then((val) => {
       if (val != null){
         let location = JSON.parse(val);
@@ -35,6 +35,12 @@ export class SettingsPage {
       state: this.state
     }
     this.storage.set('location', JSON.stringify(location));
+    let toast = this.toastCtrl.create({
+      message: 'Location updated!',
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
   }
 
 }
